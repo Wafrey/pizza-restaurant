@@ -1,10 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import { Navbar } from "./navbar/Navbar";
+import { Banner } from './Banner/Banner';
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: teal;
     font-family: 'Montserrat', sans-serif;
   }
   h1,h2,h3{
@@ -17,8 +18,8 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>yoooo</h1>
-      <div>heyyyyy</div>
+      <Navbar />
+      <Banner/>
     </>
   );
 }
