@@ -83,7 +83,7 @@ export function FoodDialog({ openFood, setOpenFood }) {
         </DialogBanner>
         <DialogContent></DialogContent>
         <DialogFooter>
-          <ConfirmButton>Confirm</ConfirmButton>
+          <ConfirmButton>Add to order</ConfirmButton>
         </DialogFooter>
       </Dialog>
     </>
