@@ -39,10 +39,10 @@ export const ConfirmButton = styled(Title)`
   cursor: pointer;
   background-color: ${pizzaRed};
   &:hover {
-   color: ${pizzaRed};
-   background-color: white;
-   border: 2px solid ${pizzaRed};
-   font-weight: bold;
+    color: ${pizzaRed};
+    background-color: white;
+    border: 2px solid ${pizzaRed};
+    font-weight: bold;
   }
 `;
 
@@ -70,10 +70,22 @@ const DialogBannerName = styled(FoodLabel)`
   padding: 5px 40px;
 `;
 
-export function FoodDialog({ openFood, setOpenFood }) {
+export function FoodDialog({ openFood, setOpenFood, setOrders, orders }) {
   function close() {
     setOpenFood();
   }
+
+  if (!openFood) return null;
+
+  const order = {
+    name: openFood.name,
+  };
+
+  function addToOrder() {
+    setOrders([...orders, order]);
+    close();
+  }
+
   return openFood ? (
     <>
       <DialogShadow onClick={close} />
@@ -83,7 +95,7 @@ export function FoodDialog({ openFood, setOpenFood }) {
         </DialogBanner>
         <DialogContent></DialogContent>
         <DialogFooter>
-          <ConfirmButton>Add to order</ConfirmButton>
+          <ConfirmButton onClick={addToOrder}>Add to order</ConfirmButton>
         </DialogFooter>
       </Dialog>
     </>
